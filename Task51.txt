@@ -1,0 +1,11 @@
+Person: Victor Rukashenko age= 27.
+Person: Patrick Rukashenko age= 38.
+Person: Vera Timoshenko age= 34.
+Person: Elena Rukashenko age= 22.
+Person: Anna Tinkoff age= 35.
+Person: Elena Lipotado age= 30.
+Person: Katerina Grunlo age= 33.
+Person: Rita Lipotado age= 29.
+Person: Rita Ovechkinof age= 26.
+Person: Maria Grunlo age= 38.
+Person: Tom Ovechkinof age= 28.
