@@ -9,7 +9,7 @@ class o4ered {
     static List list = new ArrayList();
     static Integer s4et4ik = 0;
 }
-class Proizvoditel extends Thread {
+class Proizvoditel implements Runnable {
     List add(List list) {
         o4ered.list = list;
         o4ered.list.add((int) (Math.random() * 100));
@@ -21,7 +21,7 @@ class Proizvoditel extends Thread {
      add(o4ered.list);
     }
 }
-class Potrebitel extends Thread {
+class Potrebitel implements Runnable {
 
     List delete(List list) {
         o4ered.list = list;
