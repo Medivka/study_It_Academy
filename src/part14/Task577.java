@@ -59,13 +59,22 @@ public class Task577 {
                 }
             }
             while (o4ered.list.size() < 100 && o4ered.s4et4ik < cicle) {
-                proizvoditelFirst.run();
+                if(o4ered.list.size() < 100 && o4ered.s4et4ik < cicle){
+                    proizvoditelFirst.run();
+                     o4ered.s4et4ik=o4ered.s4et4ik+1;
+                }
+                if(o4ered.list.size() < 100 && o4ered.s4et4ik < cicle){
                 proizvoditelSecond.run();
+                    o4ered.s4et4ik=o4ered.s4et4ik+1;}
+                if(o4ered.list.size() < 100 && o4ered.s4et4ik < cicle){
+                proizvoditelFree.run();
+                    o4ered.s4et4ik=o4ered.s4et4ik+1;}
 
-                o4ered.s4et4ik = o4ered.s4et4ik + 2;
+
                 if (o4ered.list.size() > 100) {
                     proizvoditelFirst.wait();
                     proizvoditelSecond.wait();
+                    proizvoditelFree.wait();
 
 
                 }
