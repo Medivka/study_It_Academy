@@ -3,23 +3,21 @@ package part18;
 
 
     class Person {
-        private String surname;
+        private int surname;
         private String name;
-        private int age;
+        private String age;
 
 
-        Person(String name, int age, String surname) {
+        Person(String name, String age, int surname) {
             this.name = name;
             this.age = age;
             this.surname=surname;
 
         }
 
-        public Person(String surname, String name, int age) {
-        }
 
         public static Personbuilder builder() {
-            return new Personbuilder();
+             return new Personbuilder();
         }
 
         public static class Personbuilder {
@@ -51,12 +49,24 @@ package part18;
             }
 
 
+
+
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "surname='" + surname + '\'' +
+                    ", name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
         }
     }
 public class Task68 {
     public static void main(String[] args) {
         System.out.println(Person.builder().age(23).name("asdasda").surname("sdasd").build().toString());
-
+Person person= Person.builder().surname("asd").name("sxasd").age(26).build();
+        System.out.println(person);
     }
 }
 //class Person{
