@@ -44,7 +44,7 @@ public class Task58 {
     class CallableClass implements Callable<String> {
         @Override
         public String call() throws Exception {
-            Thread.sleep((int) Math.random() * 3000);
+            Thread.sleep((int) (Math.random() * 3000));
             return Thread.currentThread().getName();
         }
     }

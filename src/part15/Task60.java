@@ -57,8 +57,8 @@ public class Task60
     class CallableClass implements Callable<String>
     {
         @Override
-        public String call() throws Exception {
-            Thread.sleep(100);
+        public String call()  {
+
             return Thread.currentThread().getName();
         }
     }

@@ -1,46 +1,50 @@
 package part15;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.Future;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ExecutionException;
+
 
 public class Task59 {
-
-
-   static class MyCollable implements Callable<ArrayList> {
-        List createCollection(){
-            ArrayList arrayList=new ArrayList(10);
-            for(int i=0;i<arrayList.size();i++){
-                arrayList.add(Math.random()*10);
-
-            } return arrayList;}
-
-Integer SummaAllElement(ArrayList list){
-                int summa=0;
-                int k = 0;
-                for (int i=0;i< list.size();i++){
-                    k= (int) list.get(i);
-                    summa+=k;
-
-                    System.out.println(summa);
-
-            }return k;
+    public Task59() throws  ExecutionException, InterruptedException {
+        ExecutorService executor;
+        executor = Executors.newFixedThreadPool(3);
+        List<Future<String>> futures;
+        futures = new ArrayList<Future<String>>();
+        Callable<String> callable = new CallableClass();
+        for (int i = 0; i < 3; i++) {
+            Future<String> future;
+            future = executor.submit(callable);
+            futures.add(future);
         }
-        @Override
-        public ArrayList call() throws Exception {
-            ArrayList arrayList= (ArrayList) createCollection();
-            int k=SummaAllElement(arrayList);
-
-            return arrayList;
+        for (Future<String> future : futures) {
+            int summa = 0;
+            List list = new ArrayList();
+            for (int i = 0; i < 10; i++) {
+                int k=(int) (Math.random()*10);
+                list.add(k);
+                summa = summa+k;
+            }
+            System.out.println(summa+" "+ future.get());
         }
-
-
+        executor.shutdown();
     }
-    public static void main(String[] args) {
-        ExecutorService executorService= Executors.newFixedThreadPool(3);
-        executorService.submit(new MyCollable());
-        executorService.shutdown();
-
-    }}
+    class CallableClass implements Callable<String> {
+        @Override
+        public String call() throws Exception {
+            Thread.sleep((int)( Math.random() * 10000));
+            return Thread.currentThread().getName();
+        }
+    }
+    public static void main(String args[]) throws  ExecutionException, InterruptedException {
+        for (int i = 0; i < 10; i++) {
+            new Task59();
+        }
+    }
+}
