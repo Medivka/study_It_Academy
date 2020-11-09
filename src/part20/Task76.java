@@ -110,15 +110,15 @@ class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                " id=" + id +
+                ", name= " + name +
                 ", permanent=" + permanent +
                 ", addres: ["+
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", zipcode=" + zipcode +" ]"+
+                " street= " + street  +
+                ", city= " + city +
+                ", zipcode = " + zipcode +" ]"+
                 ", phone=" + phone +
-                ", role='" + role + '\'' +
+                ", role=" + role  +
                 ", cities=" + cities +
                 '}';
     }

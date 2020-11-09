@@ -1,6 +1,5 @@
 package part15;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -10,7 +9,7 @@ import java.util.concurrent.Executors;
 public class Task59 {
 
 
-   static class MyCollable implements Callable<Void> {
+   static class MyCollable implements Callable<ArrayList> {
         List createCollection(){
             ArrayList arrayList=new ArrayList(10);
             for(int i=0;i<arrayList.size();i++){
@@ -30,11 +29,11 @@ Integer SummaAllElement(ArrayList list){
             }return k;
         }
         @Override
-        public Void call() throws Exception {
+        public ArrayList call() throws Exception {
             ArrayList arrayList= (ArrayList) createCollection();
             int k=SummaAllElement(arrayList);
 
-            return null;
+            return arrayList;
         }
 
 
